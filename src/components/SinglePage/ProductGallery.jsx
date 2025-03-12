@@ -8,8 +8,6 @@ const ProductGallery = ({
   handleClick,
   handleMouseMove,
   handleMouseLeave,
-  zoomStyle,
-  zoomBackground
 }) => {
   const settings = {
     dots: false,
@@ -28,11 +26,8 @@ const ProductGallery = ({
         <ImgDiv>
           <StyledSlider {...settings}>
             {productImages.map((item, index) => (
-              <SubImgContainer
-                key={index}
-                onClick={() => handleClick(item)}
-              >
-                <SubImg src={item} alt="subimage" />
+              <SubImgContainer key={index} onClick={() => handleClick(item)}>
+                <SubImg src={item} alt="productimage" />
               </SubImgContainer>
             ))}
           </StyledSlider>
@@ -55,7 +50,10 @@ const SampleNextArrow = (props) => {
   const { onClick } = props;
   return (
     <ArrowContainer onClick={onClick}>
-      <Arrow src={require("../../assets/images/arrow-down.svg").default} alt="arrowdown" />
+      <Arrow
+        src={require("../../assets/images/arrow-down.svg").default}
+        alt="arrowdown"
+      />
     </ArrowContainer>
   );
 };
@@ -64,7 +62,10 @@ const SamplePrevArrow = (props) => {
   const { onClick } = props;
   return (
     <ArrowContainerup onClick={onClick}>
-      <Arrow src={require("../../assets/images/arrowup.svg").default} alt="arrowup" />
+      <Arrow
+        src={require("../../assets/images/arrowup.svg").default}
+        alt="arrowup"
+      />
     </ArrowContainerup>
   );
 };
@@ -77,6 +78,7 @@ const StyledSlider = styled(Slider)`
   }
   .slick-list {
     height: 300px;
+    width: 90px;
   }
 `;
 
@@ -92,8 +94,8 @@ const ArrowContainer = styled.div`
   justify-content: center;
   cursor: pointer;
   position: relative;
-  top: 70px;
-  left: 60px;
+  top: 50px;
+  left: 32px;
 `;
 
 const ArrowContainerup = styled.div`
@@ -107,8 +109,8 @@ const ArrowContainerup = styled.div`
   justify-content: center;
   cursor: pointer;
   position: relative;
-  top: 340px;
-  left: 60px;
+  top: 300px;
+  left: 32px;
 `;
 
 const Arrow = styled.img`
@@ -119,6 +121,7 @@ const LeftContainer = styled.div`
   display: flex;
   align-items: center;
   width: 60%;
+  background-color:#F6F6F6;
   @media all and (max-width: 1280px) {
     height: 50%;
   }
@@ -158,7 +161,8 @@ const ImgDiv = styled.div`
 
 const SubImgContainer = styled.div`
   width: 93% !important;
-  height: 68px;
+  height: 62px;
+  width: 62px;
   margin-bottom: 22px;
 `;
 
@@ -201,4 +205,6 @@ const ImageContainer = styled.div`
 const Image = styled.img`
   display: block;
   width: 100%;
+  height: 677px;
+  border-radius: none;
 `;

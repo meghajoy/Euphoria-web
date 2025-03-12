@@ -37,17 +37,16 @@ const SinglePage = () => {
 
   return (
     <>
-      <DividerTop></DividerTop>
       <Header />
+      <MainContainer>
+        <ProductGallery
+          productImages={product.detail_images}
+          selectedImage={selectedImage}
+          handleClick={handleClick}
+        />
+        <ProductDetails product={product} />
+      </MainContainer>
       <Wrapper>
-        <MainContainer>
-          <ProductGallery
-            productImages={product.detail_images}
-            selectedImage={selectedImage}
-            handleClick={handleClick}
-          />
-          <ProductDetails product={product} />
-        </MainContainer>
         <ProductDescription />
         <Similar category={product.category} id={id} />
       </Wrapper>
@@ -72,6 +71,7 @@ const Wrapper = styled.div`
 
 const MainContainer = styled.div`
   display: flex;
+  border-top: 0.5px solid #BEBCBD;
   @media all and (max-width: 980px) {
     flex-wrap: wrap;
   }

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import close from "../../assets/images/close.svg";
 import menubar from "../../assets/images/menu-bar.svg";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,7 +23,7 @@ const Header = () => {
     <>
       <Wrapper>
         <Headers>
-          <LogoContainer>
+          <LogoContainer to={`/`}>
             <Logo
               src={require("../../assets/images/Logo.svg").default}
               alt="logo"
@@ -124,7 +125,7 @@ const Headers = styled.div`
   padding: 18px 0;
   justify-content: space-between;
 `;
-const LogoContainer = styled.div`
+const LogoContainer = styled(Link)`
   width: 91px;
   cursor: pointer;
   @media all and (max-width: 1080px) {
